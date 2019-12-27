@@ -1,0 +1,229 @@
+/* index.scss 整体样式控制 */
+
+/*集合其他样式文件*/
+@import './variables.scss'; //颜色定义
+@import './mixin'; //可重用的代码块
+@import './transition'; //动画
+@import './element-ui'; //覆盖原生组件样式
+@import './btn'; //按钮
+
+
+/*集成iconfont图标库*/
+@font-face {
+    font-family: 'iconfont';  /* project id 1071632 */
+    src: url('//at.alicdn.com/t/font_1071632_8m8m195reg5.eot');
+    src: url('//at.alicdn.com/t/font_1071632_8m8m195reg5.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1071632_8m8m195reg5.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1071632_8m8m195reg5.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1071632_8m8m195reg5.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1071632_8m8m195reg5.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family: "iconfont" !important;
+    //font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 5px;
+}
+
+
+/*定义全局样式*/
+*, *:before, *:after { margin:0; padding:0; box-sizing: inherit;}
+html, body, #app, .wrapper{ width:100%; height:100%; overflow-y: hidden;}
+body {
+ min-width: 1366px;
+ -moz-osx-font-smoothing: grayscale;
+ -webkit-font-smoothing: antialiased;
+ text-rendering: optimizeLegibility;
+ font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+a{ text-decoration: none}
+a:focus, a:active { outline: none;}
+a, a:focus, a:hover { cursor: pointer; color: inherit; text-decoration: none;}
+label { font-weight: 700;}
+div:focus{ outline: none;}
+.fr { float: right;}
+.fl { float: left;}
+.no-padding { padding: 0px !important;}
+.padding-content { padding: 4px 0;}
+.pr-5 { padding-right: 5px;}
+.pl-5 { padding-left: 5px;}
+.pr-10 { padding-right: 10px;}
+.pl-10 { padding-left: 10px;}
+.pr-20 { padding-right: 20px;}
+.pl-20 { padding-left: 20px;}
+.mr-0 {margin-right: 0px;}
+.ml-0 { margin-left: 0px;}
+.mr-10 { margin-right: 10px;}
+.ml-10 { margin-left: 10px;}
+.ml-20 { margin-left: 20px;}
+.ml-30 { margin-left: 30px;}
+.mt-5 { margin-top: 5px;}
+.mgb20{ margin-bottom: 20px;}
+.block { display: block;}
+.pointer { cursor: pointer;}
+
+
+/*公共框架部分样式*/
+//页面主体
+.app-main{ width: calc(100% - 20px); min-height: 100%; margin: 3px 10px;}
+.app-main .app-main{ width: 100%; margin: 0;} //有时会渲染两层 .app-main
+
+//app-container全局样式
+.app-container {
+  width: 100%;
+  min-height: 100%;
+  transition: all .28s ease-out;
+  //padding: 5px 10px 10px 10px;
+}
+
+//页面菜单栏 筛选条件 底部边框
+.app-container .el-row:first-child{
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+
+/*页面公共样式*/
+//toolbar 查询栏 按钮栏
+.toolbar { width: 100%; margin: 2px 0;} /* min-width: 1366px;*/
+
+//筛选条件左右两列分布
+.filter-left { width: calc(100% - 260px); float: left;}
+.filter-right { width: 250px; padding-left: 20px; float: left;}
+@media screen and (max-width: 1500px){
+    .filter-left {width:calc(100% - 220px); float: left;}
+    .filter-right {width: 200px; padding-left: 0;}
+}
+
+//筛选条件左右两列分布(带更多按钮的 复杂筛选条件,实现1366屏兼容)
+.filter-left-more {width:calc(100% - 350px); float: left;}
+.filter-right-more {width: 350px; padding-left: 20px;float: left;}
+@media screen and (max-width: 1500px){
+    .filter-left-more {width:calc(100% - 220px); float: left;}
+    .filter-right-more {width: 200px; padding-left: 0;}
+    .filter-right-more .el-button:last-child {margin-left: 0;}
+}
+
+
+//页面标题
+.title {
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.title span{
+    font-size: 15px;
+}
+.toRight-deg{
+    background-image:-webkit-linear-gradient(90deg, #b0d0ff, #ffffff);
+    background-image:linear-gradient(90deg, #b0d0ff, #ffffff);
+}
+
+
+//页码选择控件
+.pagination{ height:40px; margin: 10px 0; text-align: right;}
+
+
+//链接
+.link-type,
+.link-type:focus {
+    color: #03c;
+    cursor: pointer;
+    &:hover {
+        color: #03c;
+        text-decoration: underline;
+    }
+}
+
+
+//页面左上角 矩阵导航
+.matrix-pop {
+    margin-top: 15px !important;
+    padding: 5px;
+    box-shadow: 0 2px 6px 3px rgba(0, 0, 0, 0.4);
+}
+.matrix-btn {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    cursor:pointer;
+
+    font-size: 22px;
+    text-align: center;
+    color: #4E8CEE;
+    background-color: #304156;
+}
+/*.matrix-btn .iconfont{
+    margin-right: 0;
+}
+.matrix-btn:hover {
+    color: #409EFF;
+}*/
+.matrix-box {
+    width: 510px;
+}
+.matrix-item {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 1px;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+    cursor:pointer;
+}
+.matrix-icon {
+    width: 40px;
+    height: 40px;
+    margin: 12px auto;
+    background-image: url("../../static/img/matrix-icon.png");
+}
+.matrix-title {
+    margin: 0 auto;
+    width: 85px;
+    font-size: 12px;
+}
+
+
+/* 详情页面 收起/展开 按钮*/
+.collapse-div {
+    position: relative;
+    overflow: hidden;
+
+    border: 1px #d9d9d9 solid;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+}
+.collapse {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    text-align: center;
+    cursor: pointer;
+
+    transition: all .5s linear;
+    color: #8590A6;
+}
+.collapse:hover {
+    color: #03c;
+    text-decoration: underline;
+    transition: all .5s linear;
+}
+//清除被包含table的样式
+.collapse-div .productListTable:last-child{
+    border: 0;
+    -webkit-box-shadow: 0 0;
+    box-shadow: 0 0;
+    margin-bottom: 0;
+}

@@ -1,0 +1,125 @@
+{
+    "menuInfo": [
+        {
+            "parentMenuCode": "",
+            "menuCode": "001",
+            "menuCname": "模型系统",
+            "menuEname": "SystemModel",
+            "leafFlag": 0,
+            "menuLink": "",
+            "menuDisplayOrder": null,
+            "menuLevel": 1,
+            "children": [
+                {
+                    "menuCname": "首页",
+                    "leafFlag": 1,
+                    "menuCode": "001999",
+                    "menuEname": "home",
+                    "menuLevel": 2,
+                    "menuLink": "/home",
+                    "parentMenuCode": "001",
+                    "children": []
+                },
+
+                {
+                    "leafFlag": 0,
+                    "menuCname": "权限系统管理",
+                    "menuCode": "001001",
+                    "menuEname": "systemModel",
+                    "menuLevel": 2,
+                    "menuLink": "/systemModel",
+                    "parentMenuCode": "001",
+                    "children": [
+                        {
+                            "children": [],
+                            "leafFlag": 1,
+                            "menuCname": "系统用户",
+                            "menuCode": "001001001",
+                            "menuEname": "sysUser",
+                            "menuLevel": 3,
+                            "menuLink": "/sysUser",
+                            "opts": [],
+                            "parentMenuCode": "001001"
+                        }, {
+                            "children": [],
+                            "leafFlag": 1,
+                            "menuCname": "系统菜单",
+                            "menuCode": "001001002",
+                            "menuEname": "sysMenu",
+                            "menuLevel": 3,
+                            "menuLink": "/sysMenu",
+                            "opts": [],
+                            "parentMenuCode": "001001"
+                        }, {
+                            "children": [],
+                            "leafFlag": 1,
+                            "menuCname": "系统角色",
+                            "menuCode": "001001003",
+                            "menuEname": "sysRole",
+                            "menuLevel": 3,
+                            "menuLink": "/sysRole",
+                            "opts": [],
+                            "parentMenuCode": "001001"
+                        }, {
+                            "children": [],
+                            "leafFlag": 1,
+                            "menuCname": "系统部门",
+                            "menuCode": "001001004",
+                            "menuEname": "sysDept",
+                            "menuLevel": 3,
+                            "menuLink": "/sysDept",
+                            "opts": [],
+                            "parentMenuCode": "001001"
+                        }
+                    ]
+                },
+                {
+                    "leafFlag": 0,
+                    "menuCname": "公告管理",
+                    "menuCode": "001004",
+                    "menuEname": "announce",
+                    "menuLevel": 3,
+                    "menuLink": "001004",
+                    "parentMenuCode": "001",
+                    "children": [
+                        {
+                            "children": [],
+                            "leafFlag": 1,
+                            "menuCname": "公告列表",
+                            "menuCode": "001004001",
+                            "menuEname": "sysAnnounce",
+                            "menuLevel": 4,
+                            "menuLink": "/sysAnnounce",
+                            "opts": [],
+                            "parentMenuCode": "001003"
+                        }
+                    ]
+                },
+                {
+                    "leafFlag": 0,
+                    "menuCname": "系统参数",
+                    "menuCode": "001003",
+                    "menuEname": "paramSetting",
+                    "menuLevel": 3,
+                    "menuLink": "001003",
+                    "parentMenuCode": "001",
+                    "children": [
+                        {
+                            "children": [],
+                            "leafFlag": 1,
+                            "menuCname": "系统参数管理",
+                            "menuCode": "001003001",
+                            "menuEname": "paramSetting",
+                            "menuLevel": 4,
+                            "menuLink": "/param_setting",
+                            "opts": [],
+                            "parentMenuCode": "001003"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "code": 200,
+    "msg": "success"
+}

@@ -1,0 +1,229 @@
+/*覆盖element-ui样式*/
+
+/* Input */
+// 统一所有 input输入框、select选择框 宽度 为 192px
+.el-input__inner{ height:30px; border-radius:2px;}
+.el-input { display: inherit;}
+.el-input > input { height: 36px; width: 192px;}
+//textarea输入框
+.form-item-textarea textarea { width: 192px;}
+
+// 复合型输入框保持原有样式
+.prependInput { display: inline-table;}
+// 页码部分输入框保持原有宽度
+.el-pagination .el-select .el-input input { width: 110px;}
+.el-pagination__editor input { width: 30px;}
+
+// 日期选择部分输入框保持原有宽度
+.el-date-editor, .el-picker-panel { display: inline-block;}
+.el-date-editor input { width: 100%;}
+.el-picker-panel input { width: 100%;}
+
+// 特殊宽度的 input
+.short_input60, .short_input60 > input { width: 60px;}
+.short_input80, .short_input80 > input { width: 80px;}
+.short_input90, .short_input90 > input { width: 90px;}
+.short_input100, .short_input100 > input { width: 100px;}
+.short_input120, .short_input120 > input { width: 120px;}
+.short_input132, .short_input132 > input { width: 132px;}
+.short_input140, .short_input140 > input { width: 140px;}
+.short_input170, .short_input170 > input { width: 170px;}
+.long_input220, .long_input220 > input { width: 220px;}
+.long_input270, .long_input270 > input { width: 270px;}
+.long_input317, .long_input317 > input { width: 317px;} //for collectAdd
+.long_input300, .long_input300 > input { width: 300px;}
+.long_input400, .long_input400 > input { width: 400px;}
+.long_input480, .long_input480 > input { width: 480px;}
+.long_input498, .long_input498 > input { width: 498px;}
+.long_input538, .long_input538 > input { width: 538px;}
+.long_input98p, .long_input98p > input { width: 98%;}
+.long_input100p, .long_input100p > input { width: 100%;}
+
+// 特殊宽度的 textarea
+.short_textarea150, .long_textarea150 > textarea { width: 150px;}
+.long_textarea220, .long_textarea220 > textarea { width: 220px;}
+.long_textarea270, .long_textarea270 > textarea { width: 270px;}
+.long_textarea300, .long_textarea300 > textarea { width: 300px;}
+.long_textarea400, .long_textarea400 > textarea { width: 400px;}
+.long_textarea440, .long_textarea440 > textarea { width: 440px;}
+
+// 组件中的input
+.comp_long_input220, .comp_long_input220 .el-input input { width: 220px;}
+.comp_long_input500, .comp_long_input500 .el-input input { width: 500px;} //for sdReceivingNo
+.comp_long_select100, .comp_long_input100 .el-input input { width: 100px;}
+
+
+// 特殊宽度的 select
+.short_select80, .short_select80 .el-input input { width: 80px;}
+.short_select90, .short_select90 .el-input input { width: 90px;}
+.short_select100, .short_select100 .el-input input { width: 100px;}
+.short_select110, .short_select110 .el-input input { width: 110px;}
+.short_select120, .short_select120 .el-input input { width: 120px;}
+.short_select125, .short_select125 .el-input input { width: 125px;}
+.short_select135, .short_select135 .el-input input { width: 135px;}
+.short_select170, .short_select170 .el-input input { width: 170px;}
+.long_select220, .long_select220 .el-input input { width: 220px;}
+.long_select300, .long_select300 .el-input input { width: 300px;}
+.long_select98p, .long_select98p .el-input input { width: 98%;}
+.long_select100p, .long_select100p .el-input input { width: 100%;}
+
+
+/* diolag弹出框 */
+.el-dialog { border-radius: 6px;}
+.el-dialog .el-dialog__header { height:40px; background:#EBEFF6; padding: 0 0 0 15px; border-radius:6px 6px 0 0;}
+.el-dialog .el-dialog__header .el-dialog__title { line-height:40px;}
+.el-dialog .el-dialog__header .el-dialog__headerbtn { top: 8px; right: 8px; font-size: 26px;}
+.el-dialog__headerbtn:focus .el-dialog__close, .el-dialog__headerbtn:hover .el-dialog__close {font-weight: bold; color: #C03639;}
+.el-dialog .el-dialog__body { padding:15px 20px;}
+.el-dialog .el-dialog__footer{ padding: 0 20px 15px 0;}
+
+//一般弹窗，设置弹出框最小宽度
+.normal-dialog { width: 50%; min-width: 900px;}
+//比较小的弹窗 1列form弹出框
+.col1-dialog { width: 450px;}
+//比较小的弹窗 宽度600 / 800
+.w600-dialog { width: 600px;}
+//比较小的弹窗 2列form弹出框
+.col2-dialog { width: 800px;}
+//比较宽的弹出框，适用于要展示内容较多的弹窗
+.wide-dialog { width: 55%; min-width: 1050px;}
+//更宽一点的弹出框，适用于搜索+表格+分页 内容较多的弹窗
+.wider-dialog { width: 65%; min-width: 1150px;}
+//近似全屏的弹窗
+.full-screen-dialog { width: 85%; min-width: 1300px;}
+
+// 上传弹出框(较简单，可通用，仅包含上传组件和提示信息)
+.upload-file-dialog { width: 500px; height: 350px;}
+.upload-file-dialog .upload-file-tips { margin-top: 30px; border-top: 1px solid #B5BDB9; padding-top: 5px;}
+.upload-file-dialog .upload-file-tips span { font-weight: bold;}
+
+//dialog 的 margin-top margin-bottom 高度
+.dialog-mt2vh { margin-top: 2vh !important;}
+.dialog-mb2vh { margin-bottom: 2vh !important;}
+.dialog-mt5vh { margin-top: 5vh !important;}
+.dialog-mt10vh { margin-top: 10vh !important;}
+
+//dialog下的 table
+.normal-dialog .productListTable,
+.wide-dialog .productListTable,
+.wider-dialog .productListTable,
+.full-screen-dialog .productListTable {
+    width: 100%;
+    table-layout:fixed;
+    border-collapse: separate;
+    border-spacing: 0 1px;
+    border: 1px #d9d9d9 solid;
+    //border-radius: 8px;
+    //background-color: #f1f1f1;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+}
+.normal-dialog .productListTable td,
+.wide-dialog .productListTable td,
+.wider-dialog .productListTable td,
+.full-screen-dialog .productListTable td {
+    width: 33%;
+    //height: 40px; //下面display注释掉，该属性也失效，通过设置el-form-item来调整
+    //display: inline-block; //启用会造成td的 colspan 失效
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+.normal-dialog .productListTable td .el-form-item,
+.wide-dialog .productListTable td .el-form-item,
+.wider-dialog .productListTable td .el-form-item,
+.full-screen-dialog .productListTable td .el-form-item {
+    height: 25px;
+}
+
+.normal-dialog .productListTable-col4 td,
+.wide-dialog .productListTable-col4 td,
+.wider-dialog .productListTable-col4 td,
+.full-screen-dialog .productListTable-col4 td {
+    width: 25% !important;
+}
+.input-in-td, .input-in-td > input { height: 28px !important;}
+.select-in-td, .select-in-td .el-input input { height: 28px !important;}
+
+/* dropdown */
+//统一dropdown组件 下拉项 宽度
+.el-dropdown-menu .el-dropdown-menu__item { min-width: 80px;}
+
+
+/* row col */
+.el-row { margin-bottom: 2px;}
+.el-col { border-radius: 2px;}
+
+
+/* Table */
+.el-table { font-size: 12px !important;}
+//.el-table--fit { border-bottom: 1px rgb(223, 230, 236) solid; border-right: 1px rgb(223, 230, 236) solid;}
+.el-table .cell { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+.el-table th { background-color: #eef1f6; color: #1f2d3d;} //table表头
+.el-table td, .el-table th { padding: 5px 0;} //table单元格 内padding
+.el-table td, .el-table th.is-leaf { border-right: 1px solid #dfe6ec; border-bottom: 1px solid #dfe6ec;} //加深table边框颜色
+//.el-table td, .el-table .text-box { width: 100%; white-space: normal; word-break: break-all; word-wrap: break-word; } //(影响Safari显示所以注释)table 中可以换行的div, 需要自行设置 height
+//表格留白gutter
+.el-table--fit td.gutter, .el-table--fit th.gutter { background: #fff; border: 0;}
+
+
+/* Time */
+//time picker 垂直居中
+.el-time-panel__content::after, .el-time-panel__content::before { margin-top: -7px;}
+
+
+/* Form */
+.el-form-item { margin-bottom: 12px !important;}
+// size为small时，设置表单item高度
+.el-form-item--small .el-form-item__label { height: 35px; line-height: 35px;}
+.el-form-item--small .el-form-item__content { height: 33px;}
+//特别长的label,2行显示
+.too_long_label .el-form-item__label {line-height: 1;}
+//不限制form-item内容的高度
+.full-height .el-form-item__content { height: 100%;}
+// form-item包含textarea时
+.form-item-textarea .el-form-item__content { height: 100%;}
+// 搜索条中 form item
+.toolbar .el-form-item { margin-bottom: 2px !important;}
+// table中 form item
+td .el-form-item { margin-bottom: 6px !important;}
+// 错误提示
+.el-form-item__error { padding-top: 0 !important;}
+
+// receiptList页面 弹窗箱号选择部分 固定高度且可滚动
+.scroll-content .el-form-item__content { width: 600px; height: 100%; max-height: 130px; overflow: auto;}
+// shelves页面 弹窗指定拣货员部分 固定高度且可滚动
+.picker-content { margin-top: 5px;}
+.picker-content .el-form-item__content { width: 630px; height: 100%; max-height: 215px; margin-bottom: 10px; overflow: auto;}
+
+
+//el-table中的form输入框，显示校验信息时自动变高
+.el-table-form .el-form-item { margin-bottom: 0 !important;}
+.el-table-form .el-form-item .el-form-item__content { height: 100%;}
+.el-table-form .el-form-item .el-form-item__error { position: inherit} //校验文字 撑大 框的高度
+
+/* Upload */
+.g-core-image-corp-container .info-aside { height:45px;}
+
+
+/* Tabs */
+.el-tabs__header { margin-bottom: 5px;}
+.el-tabs__item.is-active { background-color: #66b1ff;color: #fff;}
+.el-tabs--border-card>.el-tabs__content { padding: 2px;}
+//tab页签中包含统计数字
+.num-tips-tab .el-tabs__item > span > span { color: red; font-size:18px;}
+
+
+/* card */
+.el-card__header { padding: 0;}
+
+
+/* popover */
+.popover-style { border: 2px #66b1ff dashed; background: #eef1f6; box-shadow: 4px 4px 10px 2px rgba(0,0,0,.3);}
+
+
+/* confirm  */
+.el-message-box__message p { word-wrap: break-word; word-break: break-all; overflow: hidden;}
+
+

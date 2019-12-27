@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration status="OFF">
+    <Properties>
+        <Property name="LOG_HOME">${sys:user.home}/deploy/logs</Property>
+        <Property name="LOG_NAME">SM.log</Property>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %class %M-%L - %m%n</Property>
+    </Properties>
+    <appenders>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+        <File name="file" fileName="${LOG_HOME}/${LOG_NAME}">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </File>
+    </appenders>
+    <loggers>
+        <Logger name="com.zhm" level="debug" additivity="true"/>
+        <Logger name="antlr" level="warn" additivity="true"/>
+        <Logger name="com.alibaba" level="warn" additivity="true"/>
+        <Logger name="com.alibaba.druid" level="info" additivity="true"/>
+        <Logger name="com.alibaba.druid.filter.logging.Slf4jLogFilter" level="debug" additivity="true"/>
+        <Logger name="com.mysql" level="warn" additivity="true"/>
+        <Logger name="javax" level="warn" additivity="true"/>
+        <Logger name="java.sql" level="warn" additivity="true"/>
+        <Logger name="net.sf" level="warn" additivity="true"/>
+        <Logger name="com.fasterxml" level="warn" additivity="true"/>
+        <Logger name="com.google" level="warn" additivity="true"/>
+        <Logger name="org.antlr" level="warn" additivity="true"/>
+        <Logger name="org.apache" level="warn" additivity="true"/>
+        <Logger name="org.aspectj" level="warn" additivity="true"/>
+        <Logger name="org.dom4j" level="warn" additivity="true"/>
+        <Logger name="org.eclipse" level="warn" additivity="true"/>
+        <Logger name="org.hibernate" level="warn" additivity="true"/>
+        <Logger name="org.javassist" level="warn" additivity="true"/>
+        <Logger name="org.jboss" level="warn" additivity="true"/>
+        <Logger name="org.ow2" level="warn" additivity="true"/>
+        <Logger name="org.slf4j" level="warn" additivity="true"/>
+        <Logger name="org.springframework" level="warn" additivity="true"/>
+        <Logger name="org.springframework.web" level="info" additivity="true"/>
+        <Logger name="springfox" level="warn" additivity="true"/>
+        <Root level="debug">
+            <appender-ref ref="console"/>
+            <appender-ref ref="file"/>
+        </Root>
+    </loggers>
+</configuration>

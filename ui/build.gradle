@@ -1,0 +1,55 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "http://repo1.maven.org/maven2" }
+        maven { url "https://plugins.gradle.org/m2" }
+        maven { url "https://maven.aliyun.com/nexus/content/repositories/gradle-plugin"}
+    }
+    dependencies {
+        classpath("com.moowork.gradle:gradle-node-plugin:1.2.0")
+    }
+}
+
+project(':ui') {
+
+
+    apply plugin: 'com.moowork.node'
+
+
+    npm_install {
+        doFirst {
+            println 'before npm install, delete package-lock.json first'
+            def package_lock_json = file("${project.projectDir}/package-lock.json")
+            println "package_lock_json : ${package_lock_json}"
+            if(package_lock_json.exists()) {
+                package_lock_json.delete()
+            }
+        }
+        args = ['--no-optional', '--registry=https://registry.npm.taobao.org']
+    }
+
+
+
+    node {
+        version = '8.9.1'
+        download = false
+        distBaseUrl = 'https://nodejs.org/dist'
+    }
+
+
+    task runDev(type: NpmTask, dependsOn: npm_install) {
+        args = ['run', 'dev']
+    }
+
+    task rebuildSass(type: NpmTask, dependsOn: npm_install) {
+        args = ['rebuild', 'node-sass', '--sass-binary-site=https://npm.taobao.org/mirrors/node-sass']
+    }
+
+    task buildTest(type: NpmTask, dependsOn: rebuildSass) {
+        args = ['run', 'test']
+    }
+
+    task buildProd(type: NpmTask, dependsOn: rebuildSass) {
+        args = ['run', 'build']
+    }
+}

@@ -1,0 +1,5 @@
+rootProject.name = 'SM'
+include 'dao'
+include 'server'
+include 'ui'
+

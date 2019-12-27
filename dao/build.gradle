@@ -1,0 +1,42 @@
+project(':dao') {
+
+    apply from: "${rootDir}/gradle/java.gradle"
+
+    dependencies {
+        compileOnly("org.springframework.boot:spring-boot-starter:$spring_boot_version")
+        compileOnly("org.springframework.boot:spring-boot-starter-data-jpa:$spring_boot_version")
+        compileOnly("org.springframework.boot:spring-boot-starter-log4j2:$spring_boot_version")
+        compile("org.apache.commons:commons-collections4:$commons_collections4_version")
+        compile("org.apache.commons:commons-lang3:$commons_lang3_version")
+
+        compile group: 'org.apache.directory.studio', name: 'org.apache.commons.io', version: '2.4'
+        runtime("com.alibaba:druid:1.1.9")
+        compile("com.alibaba:druid-spring-boot-starter:1.1.9")
+        compile("com.alibaba:fastjson:1.2.36")
+        compile("commons-codec:commons-codec:1.11")
+        compile("commons-io:commons-io:2.6")
+        compile("com.squareup.okhttp3:okhttp:3.10.0")
+        compile("org.springframework.boot:spring-boot-starter-jersey:$spring_boot_version")
+        compile("org.apache.poi:poi:$poi_version")
+        compile("org.apache.poi:poi-ooxml:$poi_version")
+        compile("com.squareup.okhttp3:okhttp:$okhttp_version")
+
+        compile("org.hibernate:hibernate-envers:$hibernate_version")
+        compile("org.hibernate:hibernate-core:$hibernate_version")
+        compile("org.hibernate:hibernate-ehcache:$hibernate_version")
+        compileOnly("io.springfox:springfox-swagger2:$springfox_version")
+        compileOnly("io.springfox:springfox-swagger-ui:$springfox_version")
+      /*  compile("us.codecraft:webmagic-extension:0.7.3")
+        compile("us.codecraft:webmagic-core:0.7.3")*/
+    }
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java']
+            }
+            resources {
+                srcDirs = ['src/main/resources']
+            }
+        }
+    }
+}

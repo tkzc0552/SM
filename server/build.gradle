@@ -1,0 +1,78 @@
+buildscript{
+    repositories {
+        mavenLocal()
+        //mavenCentral()
+        //jcenter()
+        maven { url "http://repo1.maven.org/maven2" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.13.RELEASE")
+    }
+}
+project(':server'){
+    apply plugin: 'org.springframework.boot'
+
+    apply from: "${rootDir}/gradle/java.gradle"
+
+    dependencies {
+        compile(project(":dao"))
+        runtime("com.alibaba:druid:1.1.9")
+        compile("com.alibaba:druid-spring-boot-starter:1.1.9")
+        compile("com.alibaba:fastjson:1.2.36")
+        compile("commons-codec:commons-codec:1.11")
+        compile("org.apache.commons:commons-collections4:4.1")
+        compile("commons-io:commons-io:2.6")
+        compile("org.apache.commons:commons-lang3:3.7")
+        compile("com.google.guava:guava:23.6-jre")
+        compile("com.squareup.okhttp3:okhttp:3.10.0")
+        compile('org.springframework.boot:spring-boot-starter')
+        compile('org.springframework.boot:spring-boot-starter-cache')
+        compile('org.springframework.boot:spring-boot-starter-data-jpa')
+        compile('org.springframework.boot:spring-boot-starter-data-redis')
+        compile('org.springframework.boot:spring-boot-starter-log4j2')
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-validation')
+        compile('org.springframework.boot:spring-boot-starter-mail:1.5.13.RELEASE')
+        compile("io.springfox:springfox-swagger2:2.9.2")
+        compile("io.springfox:springfox-swagger-ui:2.9.2")
+        compile("org.hibernate:hibernate-envers:5.2.17.Final")
+        compile("org.hibernate:hibernate-core:5.2.17.Final")
+        //compile("org.hibernate:hibernate-core:4.1.2.Final")
+        compile("org.hibernate:hibernate-ehcache:5.2.17.Final")
+        compile("org.antlr:antlr4:4.7.1")
+        runtime("mysql:mysql-connector-java")
+        compile("com.github.penggle:kaptcha:2.3.2")
+        compile("org.apache.poi:poi:$poi_version")
+        compile("org.apache.poi:poi-ooxml:$poi_version")
+        compile("org.apache.pdfbox:pdfbox:$pdfbox_version")
+        compile("org.apache.pdfbox:pdfbox-tools:$pdfbox_version")
+        compile group: 'org.apache.velocity', name: 'velocity', version: '1.7'
+        compile group: 'commons-configuration', name: 'commons-configuration', version: '1.10'
+        compile group: 'com.auth0', name: 'java-jwt', version: '3.3.0'
+        compile group: 'org.apache.commons', name: 'commons-text', version: '1.8'
+        compile group: 'org.lionsoul', name: 'ip2region', version: '1.7.2'
+        // https://mvnrepository.com/artifact/jakarta.jms/jakarta.jms-api
+
+    }
+
+
+    jar {
+        destinationDir = file("${rootProject.buildDir}")
+        archiveName = "${rootProject.name}.jar"
+        if(file("${rootDir}/ui/dist").exists()) {
+            from("${rootDir}/ui/dist") {
+                into 'META-INF/resources'
+            }
+        }
+    }
+
+
+
+    bootRun.systemProperty 'spring.profiles.active', 'development'
+
+    springBoot {
+        backupSource = false
+        executable = false
+    }
+}

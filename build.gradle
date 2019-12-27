@@ -1,0 +1,45 @@
+allprojects{
+    group 'com.zhm'
+    version '1.0'
+    buildDir='target'
+}
+apply plugin: "idea"
+
+subprojects{
+    configurations{
+        repositories{
+            maven { url "http://repo1.maven.org/maven2" }
+            maven { url "https://plugins.gradle.org/m2/" }
+        }
+    }
+    idea{
+        module{
+            excludeDirs=[file(".gradle")]
+            excludeDirs+=file("gradle")
+            excludeDirs+=file(".idea")
+        }
+    }
+}
+task run{
+    doFirst{
+        println 'run start'
+    }
+    doLast{
+        println 'run last'
+    }
+}
+run.dependsOn(':ui:runDev')
+run.dependsOn(':server:bootRun')
+
+task build{
+    doFirst{
+        println 'build start'
+    }
+    doLast{
+        println 'build last'
+    }
+}
+build.dependsOn(':server:bootRepackage')
+
+
+
